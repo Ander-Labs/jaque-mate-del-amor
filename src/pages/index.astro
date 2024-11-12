@@ -1,9 +1,40 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/hero.astro";
+import Letra from "../components/letra.astro";
+import { LetraMusic } from "../data/letra.ts";
+
+const description =
+  '"Jaque Mate del Amor" es una canción inspirada en el vínculo profundo y lleno de emociones que uno puede sentir hacia alguien especial, incluso cuando esos sentimientos aún no han sido expresados. La canción representa un juego de amor, como un tablero de ajedrez, donde cada movimiento se hace con cautela, y cada emoción es una pieza en juego. Inspirado en la relación entre los personajes Issei y Rías de un anime conocido, explora la incertidumbre, la admiración y el deseo de conocer si ese amor es correspondido.';
+
+const desP2 =
+  'El proceso creativo fue un viaje personal para transmitir sentimientos intensos y profundos a través de la música y las letras, combinando las emociones complejas de amor, anhelo, y la espera para que el otro también revele su jugada en este "jaque mate" emocional.';
+const desP3 =
+  "Para crear esta obra, se utilizaron herramientas de inteligencia artificial que ayudaron a dar forma a la letra y la atmósfera de la canción, bajo una cuidadosa supervisión para reflejar auténticamente lo que siento. La IA fue un compañero creativo, proporcionando ideas y ajustes que me permitieron expresar este sentimiento de manera artística y visual. Esta canción es tanto un homenaje al estilo romántico y simbólico del ajedrez en la historia original como una interpretación de mis propios sentimientos e inspiración en el amor no declarado y los deseos ocultos de todo corazón.";
 ---
 
 <Layout title="Welcome to Astro.">
-  <Hero title={"JAQUE MATE DEL AMOR"} />
-  <h2 class="text-xl">JAQUE MATE DEL AMOR</h2>
+  <Hero
+    title={"JAQUE MATE DEL AMOR"}
+    description={description}
+    desP2={desP2}
+    desP3={desP3}
+  />
+  <!-- {
+    LetraMusic.map((l) => (
+      <Letra p1={l.p1} p2={l.p2} p3={l.p3} p4={l.p4} p5={l.p5} p6={l.p6} />
+    ))
+  } -->
+
+  <Letra
+    p1={LetraMusic[0].p1}
+    p2={LetraMusic[1].p2}
+    p3={LetraMusic[2].p3}
+    p4={LetraMusic[3].p4}
+    p5={LetraMusic[4].p5}
+    p6={LetraMusic[5].p6}
+    p7={LetraMusic[6].p7}
+    p8={LetraMusic[7].p8}
+    p9={LetraMusic[8].p9}
+  />
 </Layout>

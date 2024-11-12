@@ -1,6 +1,18 @@
 ---
-
-
-
+const { p1, p2, p3, p4, p5, p6, p7, p8, p9 } = Astro.props;
 ---
 
+<section class="py-2 flex flex-col justify-center items-center gap-2">
+  <h3 class="text-xl font-bold">Letra</h3>
+  <div class="w-4/5 md:w-2/3 flex flex-col py-4 gap-3 px-2 max-w-prose">
+    <p>{p1}</p>
+    <p>{p2}</p>
+    <p>{p3}</p>
+    <p>{p4}</p>
+    <p>{p5}</p>
+    <p>{p6}</p>
+    <p>{p7}</p>
+    <p>{p8}</p>
+    <p>{p9}</p>
+  </div>
+</section>
