@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Hero from "../components/hero.astro";
 import Letra from "../components/letra.astro";
 import { LetraMusic } from "../data/letra.ts";
+import Music from '../components/music.astro'
 
 const description =
   '"Jaque Mate del Amor" es una canción inspirada en el vínculo profundo y lleno de emociones que uno puede sentir hacia alguien especial, incluso cuando esos sentimientos aún no han sido expresados. La canción representa un juego de amor, como un tablero de ajedrez, donde cada movimiento se hace con cautela, y cada emoción es una pieza en juego. Inspirado en la relación entre los personajes Issei y Rías de un anime conocido, explora la incertidumbre, la admiración y el deseo de conocer si ese amor es correspondido.';
@@ -20,12 +21,7 @@ const desP3 =
     desP2={desP2}
     desP3={desP3}
   />
-  <!-- {
-    LetraMusic.map((l) => (
-      <Letra p1={l.p1} p2={l.p2} p3={l.p3} p4={l.p4} p5={l.p5} p6={l.p6} />
-    ))
-  } -->
-
+  <Music/>
   <Letra
     p1={LetraMusic[0].p1}
     p2={LetraMusic[1].p2}
