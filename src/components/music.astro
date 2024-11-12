@@ -1,107 +1,157 @@
 ---
+
 ---
-<div class="container mx-auto p-6 max-w-md rounded-lg shadow-lg bg-gradient-to-r from-zinc-900 to-red-700 text-white">
+
+<div
+  id="player"
+  class="container mx-auto p-6 max-w-md rounded-lg shadow-lg shadow-zinc-500 bg-gradient-to-r from-zinc-900 to-red-700 text-white"
+>
   <!-- Título y Artista -->
   <div class="text-center mb-4">
-    <h2 class="text-2xl font-semibold">En Jaque Mate del Amor</h2>
+    <h2 class="text-2xl font-semibold">Jaque Mate del Amor</h2>
     <p class="text-sm text-gray-200">Autor: Ander</p>
   </div>
 
   <!-- Control de audio -->
   <div class="flex items-center justify-center space-x-4">
     <audio id="audio" src="/music/jaque-mate-del-amor.mp3"></audio>
-    
+
     <!-- Botón de Reproducir / Pausa -->
-    <button id="playPause" class="p-4 rounded-full bg-red-700 hover:bg-red-600 focus:outline-none shadow-lg transition duration-300 ease-in-out">
+    <button
+      id="playPause"
+      class="p-4 rounded-full bg-red-700 hover:bg-red-600 focus:outline-none shadow-lg transition duration-300 ease-in-out"
+    >
       <!-- SVG de Play -->
-      <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-current" viewBox="0 0 24 24">
-        <path d="M8 5v14l11-7z" />
+      <svg
+        id="playIcon"
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-6 h-6 fill-current"
+        viewBox="0 0 24 24"
+      >
+        <path d="M8 5v14l11-7z"></path>
       </svg>
       <!-- SVG de Pausa -->
-      <svg id="pauseIcon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-current hidden" viewBox="0 0 24 24">
-        <path d="M6 5h4v14H6zM14 5h4v14h-4z" />
+      <svg
+        id="pauseIcon"
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-6 h-6 fill-current hidden"
+        viewBox="0 0 24 24"
+      >
+        <path d="M6 5h4v14H6zM14 5h4v14h-4z"></path>
       </svg>
     </button>
 
     <!-- Barra de Progreso -->
-    <input type="range" id="progress" min="0" max="100" value="0" class="w-full h-1 bg-gray-300 rounded-lg accent-red-600">
-    
+    <input
+      type="range"
+      id="progress"
+      min="0"
+      max="100"
+      value="0"
+      class="w-full h-1 bg-gray-300 rounded-lg accent-red-600"
+    />
+
     <!-- Tiempo Actual -->
     <span id="currentTime" class="text-xs text-gray-300">0:00</span>
   </div>
 
   <!-- Control de Volumen -->
   <div class="flex items-center justify-center mt-4 space-x-4">
-    <button id="muteUnmute" class="p-2 rounded-full bg-gray-700 hover:bg-gray-600 focus:outline-none shadow-lg transition duration-300 ease-in-out">
+    <button
+      id="muteUnmute"
+      class="p-2 rounded-full bg-gray-700 hover:bg-gray-600 focus:outline-none shadow-lg transition duration-300 ease-in-out"
+    >
       <!-- SVG de Volumen -->
-      <svg id="volumeIcon" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-        <path d="M5 9v6h4l5 5V4L9 9H5z" />
+      <svg
+        id="volumeIcon"
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-5 h-5 fill-current"
+        viewBox="0 0 24 24"
+      >
+        <path d="M5 9v6h4l5 5V4L9 9H5z"></path>
       </svg>
       <!-- SVG de Silencio -->
-      <svg id="muteIcon" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current hidden" viewBox="0 0 24 24">
-        <path d="M16.5 12l4.5 4.5L19 19l-4.5-4.5L10 19l-1.5-1.5L12.5 12 7 6.5 8.5 5l5.5 5.5L19 5l1.5 1.5L16.5 12z" />
+      <svg
+        id="muteIcon"
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-5 h-5 fill-current hidden"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M16.5 12l4.5 4.5L19 19l-4.5-4.5L10 19l-1.5-1.5L12.5 12 7 6.5 8.5 5l5.5 5.5L19 5l1.5 1.5L16.5 12z"
+        ></path>
       </svg>
     </button>
     <!-- Barra de Volumen -->
-    <input type="range" id="volume" min="0" max="1" step="0.1" value="0.5" class="w-full h-1 bg-gray-300 rounded-lg accent-red-600">
+    <input
+      type="range"
+      id="volume"
+      min="0"
+      max="1"
+      step="0.1"
+      value="0.5"
+      class="w-full h-1 bg-gray-300 rounded-lg accent-red-600"
+    />
   </div>
 </div>
 
 <!-- Script para la funcionalidad -->
 <script is:inline>
-  const audio = document.getElementById('audio');
-  const playPauseBtn = document.getElementById('playPause');
-  const playIcon = document.getElementById('playIcon');
-  const pauseIcon = document.getElementById('pauseIcon');
-  const progress = document.getElementById('progress');
-  const currentTimeDisplay = document.getElementById('currentTime');
-  const volume = document.getElementById('volume');
-  const muteUnmuteBtn = document.getElementById('muteUnmute');
-  const volumeIcon = document.getElementById('volumeIcon');
-  const muteIcon = document.getElementById('muteIcon');
+  const audio = document.getElementById("audio");
+  const playPauseBtn = document.getElementById("playPause");
+  const playIcon = document.getElementById("playIcon");
+  const pauseIcon = document.getElementById("pauseIcon");
+  const progress = document.getElementById("progress");
+  const currentTimeDisplay = document.getElementById("currentTime");
+  const volume = document.getElementById("volume");
+  const muteUnmuteBtn = document.getElementById("muteUnmute");
+  const volumeIcon = document.getElementById("volumeIcon");
+  const muteIcon = document.getElementById("muteIcon");
 
   // Alterna entre Reproducir y Pausar
-  playPauseBtn.addEventListener('click', () => {
+  playPauseBtn.addEventListener("click", () => {
     if (audio.paused) {
       audio.play();
-      playIcon.classList.add('hidden');
-      pauseIcon.classList.remove('hidden');
+      playIcon.classList.add("hidden");
+      pauseIcon.classList.remove("hidden");
     } else {
       audio.pause();
-      playIcon.classList.remove('hidden');
-      pauseIcon.classList.add('hidden');
+      playIcon.classList.remove("hidden");
+      pauseIcon.classList.add("hidden");
     }
   });
 
   // Barra de progreso
-  audio.addEventListener('timeupdate', () => {
+  audio.addEventListener("timeupdate", () => {
     const progressPercent = (audio.currentTime / audio.duration) * 100;
     progress.value = progressPercent || 0;
 
     const minutes = Math.floor(audio.currentTime / 60);
-    const seconds = Math.floor(audio.currentTime % 60).toString().padStart(2, '0');
+    const seconds = Math.floor(audio.currentTime % 60)
+      .toString()
+      .padStart(2, "0");
     currentTimeDisplay.textContent = `${minutes}:${seconds}`;
   });
 
-  progress.addEventListener('input', () => {
+  progress.addEventListener("input", () => {
     audio.currentTime = (progress.value * audio.duration) / 100;
   });
 
   // Control de volumen
-  volume.addEventListener('input', () => {
+  volume.addEventListener("input", () => {
     audio.volume = volume.value;
   });
 
   // Alterna entre Mute y Unmute
-  muteUnmuteBtn.addEventListener('click', () => {
+  muteUnmuteBtn.addEventListener("click", () => {
     if (audio.muted) {
       audio.muted = false;
-      volumeIcon.classList.remove('hidden');
-      muteIcon.classList.add('hidden');
+      volumeIcon.classList.remove("hidden");
+      muteIcon.classList.add("hidden");
     } else {
       audio.muted = true;
-      volumeIcon.classList.add('hidden');
-      muteIcon.classList.remove('hidden');
+      volumeIcon.classList.add("hidden");
+      muteIcon.classList.remove("hidden");
     }
   });
 </script>
