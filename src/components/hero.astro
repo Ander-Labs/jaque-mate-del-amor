@@ -1,0 +1,18 @@
+---
+import { Image } from "astro:assets";
+
+const { title, description } = Astro.props;
+---
+
+<section class="flex flex-col items-center justify-center pt-10">
+  <Image
+    src={"/img/jaque-mate-del-amor.webp"}
+    alt="Img Jake"
+    width={400}
+    height={400}
+    loading={"lazy"}
+    class="w-90 h-90 rounded-md"
+  />
+  <h2 class="text-xl">{title}</h2>
+  <p class="text-sm">{description}</p>
+</section>
