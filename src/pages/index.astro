@@ -7,7 +7,7 @@ import Music from "../components/music.astro";
 import About from "../components/about.astro";
 import Share from "../components/share.astro";
 import ShareModal from "../components/shareModal.astro";
-import Download from "../components/download.astro";
+// import Download from "../components/download.astro";
 
 const desP2 =
   'El proceso creativo fue un viaje personal para transmitir sentimientos intensos y profundos a través de la música y las letras, combinando las emociones complejas de amor, anhelo, y la espera para que el otro también revele su jugada en este "jaque mate" emocional.';
@@ -15,7 +15,10 @@ const desP3 =
   "Para crear esta obra, se utilizaron herramientas de inteligencia artificial que ayudaron a dar forma a la letra y la atmósfera de la canción, bajo una cuidadosa supervisión para reflejar auténticamente lo que siento. La IA fue un compañero creativo, proporcionando ideas y ajustes que me permitieron expresar este sentimiento de manera artística y visual. Esta canción es tanto un homenaje al estilo romántico y simbólico del ajedrez en la historia original como una interpretación de mis propios sentimientos e inspiración en el amor no declarado y los deseos ocultos de todo corazón.";
 ---
 
-<Layout title="Jaque Mate del Amor">
+<Layout
+  title="Jaque Mate del Amor"
+  descripcion="Jaque Mate del Amor es una canción inspirada en el vínculo profundo y lleno de emociones que uno puede sentir hacia alguien especial, incluso cuando esos sentimientos aún no han sido expresados"
+>
   <Hero title={"JAQUE MATE DEL AMOR"} desP2={desP2} desP3={desP3} />
   <About />
   <Music />
@@ -34,6 +37,6 @@ const desP3 =
   <section class="flex justify-center items-center gap-4">
     <Share />
     <ShareModal />
-    <Download />
+    <!-- <Download /> -->
   </section>
 </Layout>

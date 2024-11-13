@@ -1,5 +1,5 @@
 ---
-
+import { turso } from "../config/turso";
 ---
 
 <div class="text-center">
@@ -11,6 +11,7 @@
     Descargar Canción
   </button>
 </div>
+
 <!-- Modal de suscripción -->
 <div
   id="subscribeModal"
@@ -55,19 +56,35 @@
 
   document
     .getElementById("subscribeForm")
-    ?.addEventListener("submit", function (event) {
+    ?.addEventListener("submit", async function (event) {
       event.preventDefault();
 
       const emailInput = document.getElementById("email");
       if (emailInput instanceof HTMLInputElement) {
         const email = emailInput.value;
 
-        // Aquí podrías integrar el proceso de suscripción o enviar el correo a una API
-        console.log("Suscripción realizada para:", email);
+        try {
+          // Almacena el correo electrónico en Turso
+          const response = await fetch("/api/subscribe.json.ts", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email }),
+          });
 
-        // Cierra el modal y redirige a la descarga
-        toggleSubscribeModal();
-        window.location.href = "/downloads/jaque-mate-del-amor.mp3"; // Ruta de la canción para descargar
+          if (response.ok) {
+            // Si el correo fue almacenado exitosamente, cierra el modal y redirige
+            toggleSubscribeModal();
+            window.location.href = "/music/jaque-mate-del-amor.mp3"; // Ruta de la canción para descargar
+          } else {
+            alert(
+              "Hubo un error al suscribirse. Por favor, intenta nuevamente."
+            );
+          }
+        } catch (error) {
+          console.error("Error en la suscripción:", error);
+        }
       }
     });
 </script>
