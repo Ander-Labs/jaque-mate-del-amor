@@ -9,5 +9,6 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
+  site:'jaque-mate-del-amor.vercel.app',
   integrations: [tailwind(), partytown(), sitemap()]
 });
