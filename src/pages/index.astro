@@ -7,7 +7,7 @@ import Music from "../components/music.astro";
 import About from "../components/about.astro";
 import Share from "../components/share.astro";
 import ShareModal from "../components/shareModal.astro";
-
+import Download from "../components/download.astro";
 
 const desP2 =
   'El proceso creativo fue un viaje personal para transmitir sentimientos intensos y profundos a través de la música y las letras, combinando las emociones complejas de amor, anhelo, y la espera para que el otro también revele su jugada en este "jaque mate" emocional.';
@@ -16,12 +16,7 @@ const desP3 =
 ---
 
 <Layout title="Jaque Mate del Amor">
-  <Hero
-    title={"JAQUE MATE DEL AMOR"}
-
-    desP2={desP2}
-    desP3={desP3}
-  />
+  <Hero title={"JAQUE MATE DEL AMOR"} desP2={desP2} desP3={desP3} />
   <About />
   <Music />
   <Letra
@@ -36,6 +31,9 @@ const desP3 =
     p9={LetraMusic[8].p9}
   />
 
-  <Share />
-  <ShareModal />
+  <section class="flex justify-center items-center gap-4">
+    <Share />
+    <ShareModal />
+    <Download />
+  </section>
 </Layout>
